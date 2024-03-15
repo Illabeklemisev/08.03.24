@@ -38,10 +38,25 @@ const target = {
 }
 
 const mapElement = document.getElementById("map");
+const ctx = mapElement.getContext("2d");
+
 mapElement.addEventListener("click", (event) => {
     click++; 
     // console.log(click);
 
+    let rect = canvas.getBoundingClientRect();
+
+    let posX = event.clientX - rect.left;
+    let posY = event.clientY - rect.top;
+
+    ctx.fillStyle = "#00ff00";
+
+    ctx.beginPath();
+
+    ctx.arc(posX, posY, 50, 0, 2 * Math.PI);
+
+    ctx.fill()
+    
     const distance = getDistance(event, target);
     const distanceHint = getDistanceHint(distance);
 
