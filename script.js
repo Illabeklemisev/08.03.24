@@ -44,7 +44,7 @@ mapElement.addEventListener("click", (event) => {
     click++; 
     // console.log(click);
 
-    let rect = canvas.getBoundingClientRect();
+    const rect = mapElement.getBoundingClientRect();
 
     let posX = event.clientX - rect.left;
     let posY = event.clientY - rect.top;
@@ -53,10 +53,10 @@ mapElement.addEventListener("click", (event) => {
 
     ctx.beginPath();
 
-    ctx.arc(posX, posY, 50, 0, 2 * Math.PI);
+    ctx.arc(posX, posY, 5, 0, 2 * Math.PI);
 
     ctx.fill()
-    
+
     const distance = getDistance(event, target);
     const distanceHint = getDistanceHint(distance);
 
